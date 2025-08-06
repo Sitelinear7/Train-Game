@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class InputManager : MonoBehaviour
         playerControls.Player.Shoot.canceled -= _ => ShootingCanceled();
     }
 
+    #region Movement & Rotation Methods
     public Vector2 GetPlayerMovement()
     {
         return playerControls.Player.HorzMovement.ReadValue<Vector2>();
@@ -58,7 +60,9 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Jump.triggered;
     }
+    #endregion
 
+    #region Shooting Methods
     private void ShootingPerformed()
     {
         isShooting = true;
@@ -73,6 +77,22 @@ public class InputManager : MonoBehaviour
     {
         return isShooting;
     }
+    #endregion
 
-    
+    #region Loadout Methods
+    public bool PlayerEquippedOne()
+    {
+        return playerControls.Player.EquipLoadout1.triggered;
+    }
+    public bool PlayerEquippedTwo()
+    {
+        return playerControls.Player.EquipLoadout2.triggered;
+    }
+    public bool PlayerEquippedThree()
+    {
+        return playerControls.Player.EquipLoadout3.triggered;
+    }
+    #endregion
+
+
 }

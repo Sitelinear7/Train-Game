@@ -126,6 +126,33 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Equip Loadout 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""e026dc0b-f694-406f-bdd1-96b83f1f4bef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Equip Loadout 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""021f65c1-4501-416a-9438-dfac5f1180bd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Equip Loadout 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""e932ef74-c47b-493e-8f61-ddfd4ff01d52"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +243,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55534a5f-3851-4f82-a30c-89ec02afdf48"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip Loadout 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4f752c5-1272-40d4-8fcb-8c00c67b937d"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip Loadout 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8aa67a0-7b07-4feb-9556-cf95aadc8486"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Equip Loadout 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +288,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_EquipLoadout1 = m_Player.FindAction("Equip Loadout 1", throwIfNotFound: true);
+        m_Player_EquipLoadout2 = m_Player.FindAction("Equip Loadout 2", throwIfNotFound: true);
+        m_Player_EquipLoadout3 = m_Player.FindAction("Equip Loadout 3", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -312,6 +375,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_EquipLoadout1;
+    private readonly InputAction m_Player_EquipLoadout2;
+    private readonly InputAction m_Player_EquipLoadout3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -339,6 +405,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Shoot".
         /// </summary>
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/EquipLoadout1".
+        /// </summary>
+        public InputAction @EquipLoadout1 => m_Wrapper.m_Player_EquipLoadout1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/EquipLoadout2".
+        /// </summary>
+        public InputAction @EquipLoadout2 => m_Wrapper.m_Player_EquipLoadout2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/EquipLoadout3".
+        /// </summary>
+        public InputAction @EquipLoadout3 => m_Wrapper.m_Player_EquipLoadout3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -377,6 +455,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @EquipLoadout1.started += instance.OnEquipLoadout1;
+            @EquipLoadout1.performed += instance.OnEquipLoadout1;
+            @EquipLoadout1.canceled += instance.OnEquipLoadout1;
+            @EquipLoadout2.started += instance.OnEquipLoadout2;
+            @EquipLoadout2.performed += instance.OnEquipLoadout2;
+            @EquipLoadout2.canceled += instance.OnEquipLoadout2;
+            @EquipLoadout3.started += instance.OnEquipLoadout3;
+            @EquipLoadout3.performed += instance.OnEquipLoadout3;
+            @EquipLoadout3.canceled += instance.OnEquipLoadout3;
         }
 
         /// <summary>
@@ -400,6 +487,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @EquipLoadout1.started -= instance.OnEquipLoadout1;
+            @EquipLoadout1.performed -= instance.OnEquipLoadout1;
+            @EquipLoadout1.canceled -= instance.OnEquipLoadout1;
+            @EquipLoadout2.started -= instance.OnEquipLoadout2;
+            @EquipLoadout2.performed -= instance.OnEquipLoadout2;
+            @EquipLoadout2.canceled -= instance.OnEquipLoadout2;
+            @EquipLoadout3.started -= instance.OnEquipLoadout3;
+            @EquipLoadout3.performed -= instance.OnEquipLoadout3;
+            @EquipLoadout3.canceled -= instance.OnEquipLoadout3;
         }
 
         /// <summary>
@@ -468,5 +564,26 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShoot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Equip Loadout 1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipLoadout1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Equip Loadout 2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipLoadout2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Equip Loadout 3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipLoadout3(InputAction.CallbackContext context);
     }
 }
