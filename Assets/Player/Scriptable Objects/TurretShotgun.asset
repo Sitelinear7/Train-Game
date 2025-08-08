@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb12896f598d7e64ea76a521eba0f39a, type: 3}
   m_Name: TurretShotgun
   m_EditorClassIdentifier: 
-  shotDelay: 0
+  shotDelay: 1
   damage: 0
-  addSpread: 0
-  spreadModifier: {x: 0, y: 0, z: 0}
-  projectile: {fileID: 0}
+  spreadModifier: {x: 1, y: 1, z: 1}
+  projectile: {fileID: 3423473649452501063, guid: c828c0484ba138146a15387aa7ff1c02, type: 3}
+  projectileSpeed: 150
+  pelletsPerShot: 16
