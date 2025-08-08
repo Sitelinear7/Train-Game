@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour
     private static InputManager _instance;
     private bool isShooting = false;
 
+    
+
     public static InputManager Instance
     {
         get { return _instance; }
@@ -79,18 +81,24 @@ public class InputManager : MonoBehaviour
     }
     #endregion
 
+    //Adjust equipped methods
     #region Loadout Methods
-    public bool PlayerEquippedOne()
+    public int SwapWeapon()
     {
-        return playerControls.Player.EquipLoadout1.triggered;
-    }
-    public bool PlayerEquippedTwo()
-    {
-        return playerControls.Player.EquipLoadout2.triggered;
-    }
-    public bool PlayerEquippedThree()
-    {
-        return playerControls.Player.EquipLoadout3.triggered;
+        if(playerControls.Player.EquipLoadout1.triggered)
+        {
+            return 0;
+        }
+        else if(playerControls.Player.EquipLoadout2.triggered)
+        {
+            return 1;
+        }
+        else if(playerControls.Player.EquipLoadout3.triggered)
+        {
+            return 2;
+        }
+
+        return -1;
     }
     #endregion
 

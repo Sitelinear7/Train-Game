@@ -19,17 +19,33 @@ public class TurretLoadoutManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        inputManager = GetComponent<InputManager>();
+        inputManager = InputManager.Instance;
 
         unlockedWeapons.Add(turretWeapons[0]);
         unlockedWeapons.Add(turretWeapons[1]);
-        currentWeapon = unlockedWeapons[0];
-        swapToWeapon(currentWeapon);
+        SetNewCurrentWeapon(0);
+
     }
+
+    private void Update()
+    {
+        int newIndex = inputManager.SwapWeapon();
+        if(newIndex != -1 && newIndex < unlockedWeapons.Count)
+        {
+            SetNewCurrentWeapon(newIndex);
+        }
+    }
+
 
     private void UnlockNewWeapon(TurretWeapon_BaseSO newWeapon)
     {
 
+    }
+
+    private void SetNewCurrentWeapon(int weaponIndex)
+    {
+        currentWeapon = unlockedWeapons[weaponIndex];  
+        swapToWeapon(unlockedWeapons[weaponIndex]);
     }
 
     //Note add functionality for weapon swapping with input mananger
