@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TurretWeapon_BaseSO", menuName = "Scriptable Objects/TurretWeapon_BaseSO")]
+
 public abstract class TurretWeapon_BaseSO : ScriptableObject
 {
     [Header("Weapon Vars")]
