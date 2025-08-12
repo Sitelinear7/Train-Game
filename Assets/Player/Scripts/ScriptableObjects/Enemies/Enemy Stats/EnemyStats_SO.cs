@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "EnemyStats", menuName = "Scriptable Objects/EnemyStats")]
-public class EnemyStats : ScriptableObject
+public class EnemyStats_SO : ScriptableObject
 {
     [Header("Enemy GameObject Prefab")]
     public GameObject EnemyPref;
@@ -11,11 +11,9 @@ public class EnemyStats : ScriptableObject
     public float health;
     public float armor;
     [Header("Enemy Movement Stats")]
-    public float moveSpeed;
-    public float dodgeInterval;
-    public float dodgeSpeed;
+    public EnemyMovementBase_SO enemyMovementType;
     [Header("Enemy Weapons")]
-    public List<EnemyWeaponBase> weapons = new List<EnemyWeaponBase>();
+    public List<EnemyWeaponBase_SO> weapons = new List<EnemyWeaponBase_SO>();
 
 
 }

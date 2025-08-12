@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public abstract class TurretWeapon_BaseSO : ScriptableObject
+public abstract class TurretWeaponBase_SO : ScriptableObject
 {
     [Header("Weapon Vars")]
     public float shotDelay;

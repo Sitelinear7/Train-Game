@@ -4,18 +4,21 @@ public class EnemyBrain : MonoBehaviour
 {
     
     [Header("Enemy Data SO")]
-    [SerializeField] EnemyStats stats;
+    [SerializeField] EnemyStats_SO stats;
+
+    private GameObject player;
 
     private void Start()
     {
+        player = GameObject.Find("Turret_PH");
         PassRelevantStats();
     }
 
     private void PassRelevantStats()
     {
-        this.GetComponent<EnemyHealth>().RecieveRelevantStats(stats.health, stats.armor);
-        this.GetComponent<EnemyMovement>().RecieveRelevantStats(stats.moveSpeed, stats.dodgeInterval, stats.dodgeSpeed);
-        this.GetComponent<EnemyWeapons>().RecieveRelevantStats(stats.weapons);
+        this.GetComponent<EnemyHealth>().RecieveRelevantStats(stats);
+        this.GetComponent<EnemyMovement>().RecieveRelevantStats(stats, player);
+        this.GetComponent<EnemyWeapons>().RecieveRelevantStats(stats);
     }
     
     //Note: Add functionality later

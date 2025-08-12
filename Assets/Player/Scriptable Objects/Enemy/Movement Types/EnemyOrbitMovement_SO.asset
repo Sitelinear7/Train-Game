@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a9b2842af762e046b79c4b44784b89e, type: 3}
-  m_Name: Enemy_PH
+  m_Script: {fileID: 11500000, guid: 502ff964bf117f74ea9fa2f32d76be15, type: 3}
+  m_Name: EnemyOrbitMovement_SO
   m_EditorClassIdentifier: 
-  EnemyPref: {fileID: 0}
-  health: 0
-  armor: 0
-  enemyMovementType: {fileID: 11400000, guid: 024b7ce09498897449f684482de67b52, type: 2}
-  weapons: []
+  moveSpeed: 30
+  dodgeInterval: 1
+  dodgeSpeed: 3

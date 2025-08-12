@@ -9,7 +9,7 @@ public class TurretShoot : MonoBehaviour
 
     private InputManager inputManager;
 
-    private TurretWeapon_BaseSO currentWeapon;
+    private TurretWeaponBase_SO currentWeapon;
     private float lastShotTime = 0;
 
     private void Start()
@@ -42,7 +42,7 @@ public class TurretShoot : MonoBehaviour
     #endregion
 
     //Get new weapon data from LoadoutManager Delegate if weapon is swapped
-    private void GetNewWeaponData(TurretWeapon_BaseSO newWeapon)
+    private void GetNewWeaponData(TurretWeaponBase_SO newWeapon)
     {
         currentWeapon = newWeapon;
     }

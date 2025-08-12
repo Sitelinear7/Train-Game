@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TurretShotgun", menuName = "Scriptable Objects/TurretShotgun")]
-public class TurretShotgun : TurretWeapon_BaseSO
+public class TurretShotgun : TurretWeaponBase_SO
 {
     [Header("Pellets Per Shot")]
     [SerializeField] int pelletsPerShot;

@@ -1,15 +1,24 @@
+using System;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float moveSpeed;
-    private float dodgeInterval;
-    private float dodgeSpeed;
+    EnemyStats_SO stats;
+    EnemyMovementBase_SO movementTypeInstance;
+    GameObject player;
 
-    public void RecieveRelevantStats(float mspeed, float dInt, float dSpeed)
+    public void RecieveRelevantStats(EnemyStats_SO s, GameObject p)
     {
-        moveSpeed = mspeed;
-        dodgeInterval = dInt; 
-        dodgeSpeed = dSpeed;
+        stats = s;
+        player = p;
+
+        //Create an instance of the used movementType to allow changes during runtime
+        movementTypeInstance = Instantiate(stats.enemyMovementType);
+        
+    }
+
+    private void Update()
+    {
+        movementTypeInstance.UpdateMovementLogic(this.gameObject, player);
     }
 }
