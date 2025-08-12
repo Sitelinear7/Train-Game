@@ -5,14 +5,14 @@ using System.Collections.Generic;
 public class TurretLoadoutManager : MonoBehaviour
 {
     [Header("Scriptable Objects of all available weapons (Make Object 0 Base Weapon)")]
-    [SerializeField] TurretWeapon_BaseSO[] turretWeapons;
+    [SerializeField] TurretWeaponBase_SO[] turretWeapons;
 
     //
-    [HideInInspector] public delegate void swappedWeapon(TurretWeapon_BaseSO currentWeapon);
+    [HideInInspector] public delegate void swappedWeapon(TurretWeaponBase_SO currentWeapon);
     [HideInInspector] public static swappedWeapon swapToWeapon;
 
-    private List<TurretWeapon_BaseSO> unlockedWeapons = new List<TurretWeapon_BaseSO>();
-    private TurretWeapon_BaseSO currentWeapon;
+    private List<TurretWeaponBase_SO> unlockedWeapons = new List<TurretWeaponBase_SO>();
+    private TurretWeaponBase_SO currentWeapon;
 
     private InputManager inputManager;
 
@@ -37,7 +37,7 @@ public class TurretLoadoutManager : MonoBehaviour
     }
 
 
-    private void UnlockNewWeapon(TurretWeapon_BaseSO newWeapon)
+    private void UnlockNewWeapon(TurretWeaponBase_SO newWeapon)
     {
 
     }

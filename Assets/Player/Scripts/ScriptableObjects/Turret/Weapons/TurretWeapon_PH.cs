@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TurretWeapon_PH", menuName = "Scriptable Objects/TurretWeapon_PH")]
-public class TurretWeapon_PH : TurretWeapon_BaseSO
+public class TurretWeapon_PH : TurretWeaponBase_SO
 {
     public override void ActivateWeaponLogic()
     {
