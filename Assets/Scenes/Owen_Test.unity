@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minViewDistance: 0
-  mouseSensitivity: 200
+  mouseSensitivity: 400
   body: {fileID: 1397655043}
 --- !u!1 &512331019
 GameObject:

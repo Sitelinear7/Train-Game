@@ -5,7 +5,6 @@ public abstract class TurretWeaponBase_SO : ScriptableObject
 {
     [Header("Weapon Vars")]
     public float shotDelay;
-    [SerializeField] protected float damage;
     [SerializeField] protected Vector3 spreadModifier;
 
     [Header("If weapon uses projectiles, add here. Other wise leave blank")]

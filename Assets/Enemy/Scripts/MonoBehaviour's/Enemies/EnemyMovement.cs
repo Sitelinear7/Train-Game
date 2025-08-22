@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -15,10 +16,17 @@ public class EnemyMovement : MonoBehaviour
         //Create an instance of the used movementType to allow changes during runtime
         movementTypeInstance = Instantiate(stats.enemyMovementType);
         
+        
     }
 
     private void Update()
     {
         movementTypeInstance.UpdateMovementLogic(this.gameObject, player);
     }
+
+    private void DestorySOInstance()
+    {
+        ScriptableObject.Destroy(movementTypeInstance);
+    }
+
 }

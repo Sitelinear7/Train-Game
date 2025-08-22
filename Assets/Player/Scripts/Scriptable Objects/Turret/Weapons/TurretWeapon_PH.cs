@@ -28,14 +28,11 @@ public class TurretWeapon_PH : TurretWeaponBase_SO
 
     private void FireWeapon(Transform barrel, Transform shootingPosition)
     {
-        Vector3 direction = AddSpread(shootingPosition.transform.position - Camera.main.transform.position);
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.transform.position, direction, out hit))
-        {
-            SpawnProjectile(barrel, hit);
+        GameObject newProjectile = Instantiate(projectile, barrel.position, shootingPosition.rotation);
 
-            Debug.Log("TurretWeapon_PH hit " + hit.transform.name);
-        }
+        Vector3 direction = AddSpread(shootingPosition.position - barrel.position);
+
+        newProjectile.GetComponent<ProjectileBase>().RecieveStartData(shootingPosition.gameObject);
     }
 
     private void SpawnProjectile(Transform barrel, RaycastHit hit)
