@@ -15,3 +15,5 @@ MonoBehaviour:
   moveSpeed: 30
   dodgeInterval: 1
   dodgeSpeed: 3
+  holdMoveDirectionMinimum: 2
+  chanceToChangeDir: 0.3

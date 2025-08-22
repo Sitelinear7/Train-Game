@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
-    
+    //Note: Check out event based messaging to try and remove dependencies in PassRelevantStats()
     [Header("Enemy Data SO")]
     [SerializeField] EnemyStats_SO stats;
 

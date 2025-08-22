@@ -31,7 +31,7 @@ public class TurretShotgun : TurretWeaponBase_SO
 
             Vector3 direction = AddSpread(shootingPosition.position - barrel.position);
 
-            newProjectile.GetComponent<ProjectileBase>().RecieveStartData(direction, projectileSpeed);
+            newProjectile.GetComponent<ProjectileBase>().RecieveStartData(shootingPosition.gameObject);
         }
         
     }
